@@ -1,0 +1,24 @@
+Goals:
+- scenarious w/ very constrained actions s.t. it is possible to allow ALL CONCEIVABLE actions as button options
+- clear goals
+- intuitive causal links
+- sparse, evocative description and images
+
+Story:
+setup face information
+    You're in some confined situation.
+    Encounter a mystic needle-insect stinger critter.
+    He offers to give you a face-tattoo of some powerful secret:
+        "You have gold?"
+        "Yes!" You rummage in your pockets for a while until you emerge, triumphant, with a single smudged gold piece between thumb and finger.
+        "OoOoH" - its mandibles chitter - "Give! Mine!"
+        "No. You tell me how to get out of here."
+        "Fine." It mutters. "We make deal. You give gold. I write how."
+        You hand the gold over.
+        It giggles and launches itself at the frostbitten flesh of your left cheek, mincing it with its florescent stinger in a hail of a thousand tiny stabs.
+        A fucking face tattoo.
+        And no mirror.
+
+
+Puzzles:
+finding a mirror
