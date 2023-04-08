@@ -25,10 +25,35 @@ function lounge() {
     imageName: "Images/lounge.png",
     text: "You are in a lounge with a piano to the right and a TV to the left. The hallway is behind you.",
     buttons: [
-      ["Left - TV", page1],
+      ["Left - TV", tv],
       ["Behind - enter hallway", page1],
       ["Ahead - try door", page1],
       ["Right - Piano", piano],
+    ]
+  })
+}
+
+function entered() {
+  setPage ({
+    showInput: false,
+    imageName: "Images/piano_room.png",
+    text: input.value,
+    buttons: [
+      ["Back", piano]
+    ]
+  })
+}
+
+
+function code() {
+  input.type = "search"
+  input.value = ""
+  setPage ({
+    showInput: true,
+    imageName: "Images/piano_room.png",
+    text: "Enter search term below:",
+    buttons: [
+      ["Enter", entered]
     ]
   })
 }
@@ -37,6 +62,18 @@ function piano() {
   setPage ({
     showInput: false,
     imageName: "Images/piano_room.png",
+    text: "plink plonk",
+    buttons: [
+      ["Enter code", code],
+      ["Behind - back to central lounge", lounge]
+    ]
+  })
+}
+
+function tv() {
+  setPage ({
+    showInput: false,
+    imageName: "Images/tv_room.png",
     text: "plink plonk",
     buttons: [
       ["Behind - back to central lounge", lounge]
