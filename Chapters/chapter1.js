@@ -80,7 +80,7 @@ function start3() {
   setPage ({
     showInput: false,
     imageName: "Images/lounge.png",
-    text: "You will need to collect 5 magical mattes to solve this mystery.\nEach room has a 'search' button.\nTo begin, 'search' in this room 'under the rug'.",
+    text: "You need to follow a trail, leading you to collect 5 magical mattes, which are needed to find the code.\nEach room has a 'search' button.\nTo begin, 'search' in this room 'under the rug'.",
     buttons: [
       ["Okay then", roomFunctions.lounge]
     ]
