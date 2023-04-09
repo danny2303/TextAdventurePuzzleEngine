@@ -56,15 +56,27 @@ function search() {
 function start() {
   setPage ({
     showInput: false,
-    imageName: "Images/lounge.png",
-    text: "You have arrived in a strange haunted house.\nThe door locks behind you, and an ominous ticking sounds.\nYou need a 5-digit code to deactivate the bomb.",
+    imageName: "Images/house.jpg",
+    text: "You have arrived at a strange haunted house.",
     buttons: [
-      ["Oh no!", exp]
+      ["Enter the house.", start2]
     ]
   })
 }
 
-function exp() {
+function start2() {
+  setPage ({
+    showInput: false,
+    imageName: "Images/lounge.png",
+    text: "The door locks behind you, and an ominous ticking begins!\nYou need a 5-digit code to deactivate this bomb.",
+    buttons: [
+      ["Oh no!", start3]
+    ]
+  })
+}
+
+
+function start3() {
   setPage ({
     showInput: false,
     imageName: "Images/lounge.png",
