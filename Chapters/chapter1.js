@@ -74,6 +74,41 @@ function exp() {
   })
 }
 
+function enterCode() {
+  if (input.value=="25941") {
+    setPage ({
+      showInput: false,
+      imageName: "Images/victory.jpeg",
+      text: "VICTORY!!! - you defuse the bomb!",
+      buttons: [
+      ]
+    })
+  } else {
+    setPage ({
+      showInput: false,
+      text: "The code doesn't work. ):",
+      buttons: [
+        ["Oh no", roomFunctions.lounge]
+      ]
+    })
+  }
+}
+
+function defuse() {
+  input.type = "number"
+  input.value = ""
+  setPage ({
+    showInput: true,
+    imageName: "Images/buttonpad.jpg",
+    text: "Enter the 5-digit code.",
+    buttons: [
+      ["Enter", enterCode]
+    ]
+  })
+}
+
+
+
 
 
 roomFunctions.hall = function() {
@@ -108,9 +143,10 @@ roomFunctions.lounge = function () {
   setPage ({
     showInput: false,
     imageName: "Images/lounge.png",
-    text: "You are in a lounge with a piano to the right and a TV to the left. The hallway is behind you.",
+    text: "You are in a lounge with a piano to the right and a TV to the left. The hallway is behind you.\nPress 'defuse' to try defusing the bomb.",
     buttons: [
       ["Search", search],
+      ["Defuse",defuse],
       ["Left - TV", roomFunctions.tv],
       ["Behind - enter hallway", roomFunctions.hall],
       ["Ahead - try door", roomFunctions.hall],
