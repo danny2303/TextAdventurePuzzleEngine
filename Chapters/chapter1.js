@@ -1,13 +1,17 @@
 ///// Global Variables /////
 currentRoom = "hall"
 hiddenItems = {kitchen:{}, hall:{}, lounge:{}, piano:{}, tv:{}}
-hiddenItems.piano["in the piano"] = "teddy bear"
+hiddenItems.lounge["under the rug"] = "a note, saying 'In the kitchen, search: 'in the fridge'"
+hiddenItems.kitchen["in the fridge"] = "a note, saying 'In the TV room, search: 'in the tv cabinet'"
+hiddenItems.kitchen["in the fruit bowl"] = "a note, saying 'In the TV room, search: 'in the fireplace'"
+hiddenItems.tv["under the armchair"] = "a note, saying 'In the piano room, search: 'in the piano'"
+hiddenItems.piano["in the piano"] = "RIPPED"
 roomFunctions={}
 
 ////// Page Functions //////
 
 function searchEnter() {
-  found = hiddenItems[currentRoom][input.value]
+  found = hiddenItems[currentRoom][input.value.toLowerCase()]
   if (found==null) {
     setPage ({
       showInput: false,
@@ -16,7 +20,16 @@ function searchEnter() {
         ["Okay", roomFunctions[currentRoom]]
       ]
     })
-  } else {
+  } else if (found=="RIPPED") {
+      setPage ({
+      showInput: false,
+      imageName: "Images/ripped.png",
+      text: "You search " + input.value + ". You find a strange ripped half of a note.",
+      buttons: [
+        ["Huzzah", roomFunctions[currentRoom]]
+      ]
+    })
+  } else{
     setPage ({
       showInput: false,
       text: "You search " + input.value + ". You find a " + found + "! (:",
@@ -39,6 +52,28 @@ function search() {
   })
 }
 
+function start() {
+  setPage ({
+    showInput: false,
+    imageName: "Images/lounge.png",
+    text: "You have arrived in a strange haunted house.\nThe door locks behind you, and an ominous ticking sounds.\nYou need a 5-digit code to deactivate the bomb.",
+    buttons: [
+      ["Oh no!", exp]
+    ]
+  })
+}
+
+function exp() {
+  setPage ({
+    showInput: false,
+    imageName: "Images/lounge.png",
+    text: "You will need to collect 5 magical mattes to solve this mystery.\nEach room has a 'search' button.\nTo begin, 'search' in this room 'under the rug'.",
+    buttons: [
+      ["Okay then", roomFunctions.lounge]
+    ]
+  })
+}
+
 
 
 roomFunctions.hall = function() {
@@ -46,14 +81,24 @@ roomFunctions.hall = function() {
   setPage ({
     showInput: false,
     imageName: "Images/south_hallway.jpeg",
-    text: "You are in a hallway.\nBehind you is the kitchen.\nIn front is a lounge / music room.\nTo your left are doors to a utility room and a bathroom.\nTo your right are doors to an office and a bedroom.",
+    text: "You are in a hallway.\nAhead of you is the kitchen.\nBehind is a lounge area.\nAll the side doors seem to be locked.",
     buttons: [
-      ["Behind - enter kitchen", roomFunctions.hall],
-      ["Left door #1 - enter utility", roomFunctions.hall],
-      ["Left door #2 - enter bathroom", roomFunctions.hall],
-      ["Right door #1 - enter office", roomFunctions.hall],
-      ["Right door #2 - enter bedroom", roomFunctions.hall],
-      ["Ahead - enter lounge", roomFunctions.lounge],
+      ["Search", search],
+      ["Ahead - enter kitchen", roomFunctions.kitchen],
+      ["Behind - enter lounge", roomFunctions.lounge],
+    ]
+  })
+}
+
+roomFunctions.kitchen = function() {
+  currentRoom = "kitchen"
+  setPage ({
+    showInput: false,
+    imageName: "Images/kitchen.jpg",
+    text: "You are in a kitchen. Behind you is the hallway.",
+    buttons: [
+      ["Search", search],
+      ["Behind - enter hallway", roomFunctions.hall],
     ]
   })
 }
@@ -65,6 +110,7 @@ roomFunctions.lounge = function () {
     imageName: "Images/lounge.png",
     text: "You are in a lounge with a piano to the right and a TV to the left. The hallway is behind you.",
     buttons: [
+      ["Search", search],
       ["Left - TV", roomFunctions.tv],
       ["Behind - enter hallway", roomFunctions.hall],
       ["Ahead - try door", roomFunctions.hall],
