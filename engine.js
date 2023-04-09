@@ -1,7 +1,7 @@
 var input = document.getElementById("input");
 var onClickFunctions;
 function setPage(page) {
-  document.getElementById("image").style.backgroundImage = "url(" + page.imageName + ")";
+  if (page.imageName!=null) document.getElementById("image").style.backgroundImage = "url(" + page.imageName + ")";
   document.getElementById("text").innerHTML = page.text
   document.getElementById('buttonBox').innerHTML = "";
   onClickFunctions = {};
