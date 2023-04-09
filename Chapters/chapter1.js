@@ -4,7 +4,8 @@ hiddenItems = {kitchen:{}, hall:{}, lounge:{}, piano:{}, tv:{}}
 hiddenItems.lounge["under the rug"] = "a note, saying 'In the kitchen, search: 'in the fridge'"
 hiddenItems.kitchen["in the fridge"] = "a note, saying 'In the TV room, search: 'in the tv cabinet'"
 hiddenItems.kitchen["in the fruit bowl"] = "a note, saying 'In the TV room, search: 'in the fireplace'"
-hiddenItems.tv["under the armchair"] = "a note, saying 'In the piano room, search: 'in the piano'"
+hiddenItems.tv["under the armchair"] = "a note, saying 'In the hall, search: 'in the coat cupboard'"
+hiddenItems.hall["in the coat cupboard"] = "a note, saying 'In the piano room, search: 'in the piano'"
 hiddenItems.piano["in the piano"] = "RIPPED"
 roomFunctions={}
 
@@ -32,7 +33,7 @@ function searchEnter() {
   } else{
     setPage ({
       showInput: false,
-      text: "You search " + input.value + ". You find a " + found + "! (:",
+      text: "You search " + input.value + ". You find a " + found,
       buttons: [
         ["Huzzah", roomFunctions[currentRoom]]
       ]
@@ -149,7 +150,6 @@ roomFunctions.lounge = function () {
       ["Defuse",defuse],
       ["Left - TV", roomFunctions.tv],
       ["Behind - enter hallway", roomFunctions.hall],
-      ["Ahead - try door", roomFunctions.hall],
       ["Right - Piano", roomFunctions.piano],
     ]
   })
