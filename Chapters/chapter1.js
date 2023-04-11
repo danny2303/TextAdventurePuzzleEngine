@@ -172,7 +172,7 @@ roomFunctions.piano = function() {
   setPage ({
     showInput: false,
     imageName: "Images/piano_room.png",
-    text: "plink plonk",
+    text: "You are in the piano room, the rest of the lounge is to your left.",
     buttons: [
       ["Search", search],
       ["Behind - back to central lounge", roomFunctions.lounge]
@@ -185,7 +185,7 @@ roomFunctions.tv = function() {
   setPage ({
     showInput: false,
     imageName: "Images/tv_room.png",
-    text: "plink plonk",
+    text: "You are in the tv room, the rest of the lounge is to your right.",
     buttons: [
       ["Search", search],
       ["Behind - back to central lounge", roomFunctions.lounge]
