@@ -68,7 +68,7 @@ function start2() {
   setPage ({
     showInput: false,
     imageName: "Images/lounge.png",
-    text: "The door locks behind you, and an ominous ticking begins!\nYou need a 5-digit code to deactivate this bomb.",
+    text: "The door locks behind you, and an ominous ticking begins!\nYou need a 5-digit code to deactivate this bomb.\nYou are in a lounge with a piano to the right and a TV to the left.",
     buttons: [
       ["Oh no!", start3]
     ]
@@ -80,7 +80,7 @@ function start3() {
   setPage ({
     showInput: false,
     imageName: "Images/lounge.png",
-    text: "You need to follow a trail, leading you to collect 5 magical mattes, which are needed to find the code.\nEach room has a 'search' button.\nTo begin, 'search' in this room 'under the rug'.",
+    text: "You need to follow a trail, leading you to collect 5 magical mattes, which are needed to find the code.\nEach room has a 'search' button.\nTo begin, 'search' in this room, the lounge, 'under the rug'.",
     buttons: [
       ["Okay then", roomFunctions.lounge]
     ]
